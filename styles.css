@@ -1,12 +1,13 @@
 :root {
-  --bg: #0b1020;
-  --card: #151b31;
-  --card-alt: #1d2542;
-  --text: #e8edff;
-  --muted: #a9b5e5;
-  --accent: #72f4d1;
-  --accent-2: #8f8aff;
-  --danger: #ff7f8f;
+  --bg: #040604;
+  --bg-soft: #081108;
+  --panel: #0a150a;
+  --panel-border: #1d4f1d;
+  --text: #9dff9d;
+  --text-dim: #6fcb6f;
+  --accent: #39ff14;
+  --accent-soft: #1fa51f;
+  --danger: #ff5f5f;
 }
 
 * {
@@ -15,9 +16,26 @@
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  background: linear-gradient(180deg, #090d1a 0%, #0d1429 100%);
+  font-family: "Courier New", Courier, monospace;
+  background: radial-gradient(circle at 20% 20%, #102510 0%, var(--bg) 45%), var(--bg);
   color: var(--text);
+  min-height: 100vh;
+  text-shadow: 0 0 6px rgb(57 255 20 / 0.3);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    rgb(57 255 20 / 0.04) 0,
+    rgb(57 255 20 / 0.04) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  mix-blend-mode: screen;
 }
 
 .container {
@@ -41,12 +59,14 @@ body {
 .brand h1 {
   margin: 0;
   font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .brand p {
   margin: 0.2rem 0 0;
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: var(--text-dim);
+  font-size: 0.86rem;
 }
 
 .logo {
@@ -55,9 +75,10 @@ body {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: #041118;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #001d00;
+  background: radial-gradient(circle at 30% 20%, #8fff7a, var(--accent));
   font-weight: 800;
+  box-shadow: 0 0 12px rgb(57 255 20 / 0.65);
 }
 
 .layout {
@@ -67,14 +88,16 @@ body {
 }
 
 .card {
-  background: linear-gradient(180deg, var(--card) 0%, var(--card-alt) 100%);
-  border: 1px solid #2f3a67;
-  border-radius: 14px;
+  background: linear-gradient(180deg, var(--panel) 0%, var(--bg-soft) 100%);
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
   padding: 1rem;
+  box-shadow: inset 0 0 0 1px rgb(57 255 20 / 0.12), 0 0 18px rgb(57 255 20 / 0.08);
 }
 
 .intro h2 {
   margin-top: 0;
+  letter-spacing: 0.03em;
 }
 
 .chips {
@@ -84,12 +107,12 @@ body {
 }
 
 .chips span {
-  background: #243258;
-  border: 1px solid #36477e;
-  color: #ceeeff;
-  font-size: 0.82rem;
-  border-radius: 999px;
-  padding: 0.2rem 0.6rem;
+  background: #0a1f0a;
+  border: 1px solid #1f5f1f;
+  color: #b9ffb9;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  padding: 0.22rem 0.6rem;
 }
 
 .grid-form {
@@ -101,18 +124,26 @@ body {
 label {
   display: grid;
   gap: 0.35rem;
-  font-size: 0.87rem;
-  color: var(--muted);
+  font-size: 0.85rem;
+  color: var(--text-dim);
 }
 
 input,
 textarea,
 select {
-  border: 1px solid #33406b;
-  background: #0d142a;
+  border: 1px solid #1f5f1f;
+  background: #071107;
   color: var(--text);
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 0.6rem;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 1px solid var(--accent);
+  box-shadow: 0 0 10px rgb(57 255 20 / 0.4);
 }
 
 .full {
@@ -120,19 +151,20 @@ select {
 }
 
 .btn {
-  background: linear-gradient(135deg, var(--accent), #8af6eb);
-  color: #051217;
-  border: none;
-  border-radius: 10px;
+  background: linear-gradient(180deg, #63ff47, var(--accent-soft));
+  color: #021202;
+  border: 1px solid #54d454;
+  border-radius: 4px;
   font-weight: 700;
   cursor: pointer;
   padding: 0.7rem 1rem;
+  font-family: inherit;
 }
 
 .btn-outline {
   background: transparent;
   color: var(--text);
-  border: 1px solid #495a93;
+  border: 1px solid #3b8f3b;
 }
 
 .status {
@@ -153,14 +185,14 @@ table {
 
 th,
 td {
-  border-bottom: 1px solid #324274;
+  border-bottom: 1px solid #1f5f1f;
   text-align: left;
   padding: 0.55rem;
   vertical-align: top;
 }
 
 th {
-  color: #c6e7ff;
+  color: #bfffbf;
 }
 
 .section-row {
@@ -177,10 +209,10 @@ th {
 }
 
 .project {
-  border: 1px solid #3b4b81;
-  border-radius: 12px;
+  border: 1px solid #2a6e2a;
+  border-radius: 6px;
   padding: 0.8rem;
-  background: #121a34;
+  background: #071307;
 }
 
 .project h4 {
@@ -188,8 +220,8 @@ th {
 }
 
 .meta {
-  color: var(--muted);
-  font-size: 0.83rem;
+  color: var(--text-dim);
+  font-size: 0.82rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -198,20 +230,20 @@ th {
 .badge {
   display: inline-block;
   margin-top: 0.4rem;
-  border-radius: 999px;
+  border-radius: 4px;
   padding: 0.2rem 0.6rem;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
 }
 
 .badge.pending {
-  background: #403d1b;
-  color: #ffe08a;
+  background: #2c2a07;
+  color: #fff080;
 }
 
 .badge.review {
-  background: #1a3553;
-  color: #9ed0ff;
+  background: #113111;
+  color: #97ff97;
 }
 
 @media (max-width: 700px) {
