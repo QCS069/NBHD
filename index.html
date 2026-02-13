@@ -4,78 +4,87 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neighborhood | Solana Launchpad</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="header container">
+    <header class="site-header container">
       <div class="brand">
         <span class="logo">N</span>
         <div>
           <h1>Neighborhood</h1>
-          <p>Solana Launchpad for vetted crypto projects</p>
+          <p>Vetted Solana Launchpad</p>
         </div>
       </div>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#process">Process</a>
+        <a href="#apply">Apply</a>
+      </nav>
       <button id="wallet-btn" class="btn btn-outline">Connect Wallet</button>
     </header>
 
-    <main class="container layout">
-      <section class="card intro">
-        <h2>[ NEIGHBORHOOD_LAUNCHPAD.exe ]</h2>
+    <main>
+      <section class="hero container">
+        <p class="eyebrow">SOLANA // CURATED // TRUSTED</p>
+        <h2>Launch in the right neighborhood.</h2>
         <p>
-          Neighborhood vets founders, enforces KYC, and uses board + governance approvals before any token sale goes live.
-          Built for Solana speed with launch controls for vesting, refunds, and liquidity handling, presented in a retro terminal-inspired interface.
+          Neighborhood is a crypto launchpad where founders pass KYC, technical screening, and governance review before going live.
+          Discover high-signal projects and invest with transparent milestones.
         </p>
-        <div class="chips">
-          <span>Solana-native</span>
-          <span>KYC + Board Review</span>
-          <span>DAO Governance</span>
-          <span>Liquidity Locking</span>
+        <div class="hero-actions">
+          <a class="btn" href="#apply">Submit Project</a>
+          <a class="btn btn-outline" href="#process">How It Works</a>
+        </div>
+        <div class="stats">
+          <article><strong>5-Step</strong><span>Vetting Pipeline</span></article>
+          <article><strong>24h</strong><span>KYC Turnaround Target</span></article>
+          <article><strong>DAO + Board</strong><span>Dual Listing Approval</span></article>
         </div>
       </section>
 
-      <section class="card">
-        <h3>Project Vetting Submission</h3>
+      <section id="features" class="container card section">
+        <h3>Why Neighborhood</h3>
+        <div class="feature-grid">
+          <article>
+            <h4>KYC + Founder Verification</h4>
+            <p>Identity checks through providers like SumSub or Persona, combined with internal review.</p>
+          </article>
+          <article>
+            <h4>Launch Control Contracts</h4>
+            <p>Structured token sales with vesting schedules, refund rules, and liquidity lock policies.</p>
+          </article>
+          <article>
+            <h4>Token Metrics Dashboard</h4>
+            <p>Clear tokenomics, raise targets, valuation assumptions, and milestone tracking.</p>
+          </article>
+          <article>
+            <h4>Governance Layer</h4>
+            <p>Board due diligence plus DAO-style approvals before final listing.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="process" class="container card section">
+        <h3>Launch Process</h3>
+        <ol class="pipeline">
+          <li><strong>Application</strong> — Founders submit project details and token setup.</li>
+          <li><strong>KYC</strong> — Identity and legal checks for founders and core team.</li>
+          <li><strong>Review Board</strong> — Tokenomics and technical architecture assessment.</li>
+          <li><strong>Governance Vote</strong> — Listing approval by Neighborhood governance.</li>
+          <li><strong>TGE Launch</strong> — Sale deployment, vesting setup, and liquidity handling.</li>
+        </ol>
+      </section>
+
+      <section id="apply" class="container card section">
+        <h3>Apply to Launch on Neighborhood</h3>
         <form id="project-form" class="grid-form">
-          <label>
-            Project Name
-            <input required name="projectName" placeholder="e.g. Neighborhood Pay" />
-          </label>
-          <label>
-            Founder Name
-            <input required name="founder" placeholder="Jane Doe" />
-          </label>
-          <label>
-            Contact Email
-            <input required type="email" name="email" placeholder="founder@project.com" />
-          </label>
-          <label>
-            Solana Program / Token Address
-            <input required name="tokenAddress" placeholder="So11111111111111111111111111111111111111112" />
-          </label>
-          <label>
-            Raise Target (USDC)
-            <input required type="number" min="1000" name="raiseTarget" placeholder="500000" />
-          </label>
-          <label>
-            Initial FDV (USDC)
-            <input required type="number" min="10000" name="fdv" placeholder="3500000" />
-          </label>
-          <label class="full">
-            Tokenomics Summary
-            <textarea required name="tokenomics" rows="3" placeholder="Supply, allocations, vesting schedule, community %"></textarea>
-          </label>
-          <label class="full">
-            Milestones & Delivery Roadmap
-            <textarea required name="milestones" rows="3" placeholder="Quarterly product and growth milestones"></textarea>
-          </label>
-          <label>
-            KYC Provider
+          <label>Project Name<input required name="projectName" /></label>
+          <label>Founder Name<input required name="founder" /></label>
+          <label>Contact Email<input required type="email" name="email" /></label>
+          <label>Solana Token Address<input required name="tokenAddress" /></label>
+          <label>Raise Target (USDC)<input required type="number" min="1000" name="raiseTarget" /></label>
+          <label>Initial FDV (USDC)<input required type="number" min="10000" name="fdv" /></label>
+          <label>KYC Provider
             <select required name="kycProvider">
               <option value="">Select provider</option>
               <option>SumSub</option>
@@ -83,8 +92,7 @@
               <option>Other</option>
             </select>
           </label>
-          <label>
-            Liquidity Handling
+          <label>Liquidity Handling
             <select required name="liquidity">
               <option value="">Choose one</option>
               <option>Auto-lock LP for 12 months</option>
@@ -92,58 +100,25 @@
               <option>Hybrid lock + protocol treasury</option>
             </select>
           </label>
-          <label>
-            Sale Fee (%)
-            <input required type="number" step="0.1" min="0" max="20" name="saleFee" placeholder="4" />
-          </label>
-          <label>
-            Listing Fee (USDC)
-            <input required type="number" min="0" name="listingFee" placeholder="5000" />
-          </label>
-          <button class="btn" type="submit">Submit for Vetting</button>
+          <label class="full">Tokenomics Summary<textarea required name="tokenomics" rows="3"></textarea></label>
+          <label class="full">Milestones & Roadmap<textarea required name="milestones" rows="3"></textarea></label>
+          <button class="btn" type="submit">Submit for Review</button>
         </form>
         <p id="form-status" class="status"></p>
       </section>
 
-      <section class="card">
-        <h3>Vetting Pipeline</h3>
-        <ol class="pipeline">
-          <li><strong>Step 1:</strong> Application received</li>
-          <li><strong>Step 2:</strong> KYC + identity checks completed</li>
-          <li><strong>Step 3:</strong> Technical and tokenomics review board decision</li>
-          <li><strong>Step 4:</strong> Governance vote for listing approval</li>
-          <li><strong>Step 5:</strong> Launch setup (sale contract, vesting, refunds, LP locks)</li>
-        </ol>
-      </section>
-
-      <section class="card">
-        <h3>Architecture Layers</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Layer</th><th>Description</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Frontend (DApp)</td><td>Wallet connect, project discovery, and investment flows.</td></tr>
-              <tr><td>Smart Contracts</td><td>Token sale, vesting, refund logic, and liquidity lock handlers.</td></tr>
-              <tr><td>KYC & Review System</td><td>Founder/dev identity checks through SumSub/Persona and internal QA.</td></tr>
-              <tr><td>Token Metrics & Dashboard</td><td>Tokenomics, milestones, vesting cliffs, and progress reporting.</td></tr>
-              <tr><td>Governance / Board Layer</td><td>Dual approval process using board panel + DAO vote.</td></tr>
-              <tr><td>Liquidity Handling</td><td>DEX routing + LP locking strategy at TGE.</td></tr>
-              <tr><td>Revenue & Fees</td><td>Listing fees, sale percentages, and staking/holding requirements.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="card">
-        <div class="section-row">
-          <h3>Submitted Projects</h3>
+      <section class="container card section">
+        <div class="section-head">
+          <h3>Pipeline Queue</h3>
           <button id="seed-btn" class="btn btn-outline">Load Demo Project</button>
         </div>
         <div id="project-list" class="project-list"></div>
       </section>
     </main>
+
+    <footer class="container footer">
+      <p>Neighborhood © Solana Launchpad Prototype</p>
+    </footer>
 
     <script src="app.js"></script>
   </body>
